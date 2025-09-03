@@ -640,9 +640,9 @@ def run_training(task_id, model, model_type, expected_repo_name, hours_to_comple
                     docker_maxi = False
                     docker_failed = False
 
-                # if docker_lrate > 0.1:
-                #     docker_maxi = False
-                #     docker_failed = False
+                if docker_lrate > 0.1:
+                    docker_maxi = False
+                    docker_failed = False
 
                 # docker_maxi = False
                 # docker_failed = False
