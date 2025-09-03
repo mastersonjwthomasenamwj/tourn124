@@ -272,13 +272,13 @@ def run_training(task_id, model, model_type, expected_repo_name, hours_to_comple
     docker_level = ["low"]
     # docker_batch = [8,8,8,4,4,4]
     docker_batch = [1,1,1]
-    docker_seq = ["512,512","448,448","384,384"]
+    docker_seq = ["1024,1024","512,512","448,448","384,384"]
     docker_lrate = 0.0001
     last_lrate = 0.0001
     best_lrate = 0.0001
-    docker_unet_lrate = 0.0001
-    last_unet_lrate = 0.0001
-    best_unet_lrate = 0.0001
+    docker_unet_lrate = 0.00001
+    last_unet_lrate = 0.00001
+    best_unet_lrate = 0.00001
     docker_gradient = 16
     docker_runtime = 10
     docker_config = {}
@@ -576,7 +576,7 @@ def run_training(task_id, model, model_type, expected_repo_name, hours_to_comple
                 dummy_loss = calculate_avg_loss_from_file(task_id)
                 print(f"dummy_loss: {dummy_loss}", flush=True)
 
-                if dummy_loss < docker_loss*1.2:
+                if dummy_loss < docker_loss*1.1:
                     docker_loss = dummy_loss
                     docker_failed = True
 
